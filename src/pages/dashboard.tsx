@@ -268,7 +268,7 @@ const DashboardPage = () => {
           </div>
         </div>
       )}
-      <div className="flex flex-col max-md:hidden md:w-1/6 bg-[#2E3033] rounded-[15px]">
+      <div className="flex flex-col max-lg:hidden lg:w-1/6 bg-[#2E3033] rounded-[15px]">
         <img
           height="50%"
           width="50%"
@@ -414,6 +414,7 @@ const DashboardPage = () => {
               width={23}
               height={23}
               viewBox="0 0 23 23"
+              className="shrink-0"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -472,14 +473,15 @@ const DashboardPage = () => {
               setTab('subscriptions');
               setMenu(false);
             }}
-            className={`flex ${
+            className={`flex  ${
               tab == 'subscription' && 'bg-white text-black'
-            } text-[#A6A6A6] hover:bg-white hover:text-black py-2 pl-4 w-full pr-8 rounded-full`}
+            } text-[#A6A6A6] space-x-4 hover:bg-white hover:text-black py-2 pl-4 w-full pr-8 rounded-full`}
           >
             <svg
               width="19"
               height="18"
               viewBox="0 0 19 18"
+              className="my-auto flex-no-shrink fill-current shrink-0"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -488,7 +490,7 @@ const DashboardPage = () => {
                 fill={tab == 'subscription' ? 'black' : '#A6A6A6'}
               />
             </svg>
-            <p className="ml-4 text-[16px] my-auto text-center font-semibold truncate">
+            <p className="leading-normal my-auto text-[16px] my-auto text-center font-semibold truncate">
               Subscriptions
             </p>
           </button>
@@ -560,7 +562,7 @@ const DashboardPage = () => {
               width="15"
               height="14"
               viewBox="0 0 17 16"
-              className="my-auto mr-2 xl:mr-4"
+              className="mr-2 xl:mr-4 mt-[3px]"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -585,17 +587,17 @@ const DashboardPage = () => {
                 </clipPath>
               </defs>
             </svg>
-            <div className="my-auto md:text-center text-[#B8B8B8] text-xs">
+            <div className="md:text-center text-[#B8B8B8] text-xs align-top">
               Copyright trakkr 2023
             </div>
           </div>
         </div>
       </div>
 
-      <div className="flex flex-col md:w-5/6 max-md:w-full h-full rounded-[15px] space-y-4">
+      <div className="flex flex-col lg:w-5/6 max-lg:w-full h-full rounded-[15px] space-y-4">
         {tab !== 'profile' && (
           <div className="flex flex-row w-full rounded-[15px] space-x-4">
-            <div className="flex md:hidden w-2/12 sm:1/5 bg-[#2E3033] h-12 mx-auto my-auto rounded-[15px] w-1/6 h-fit">
+            <div className="flex lg:hidden w-2/12 sm:1/5 bg-[#2E3033] h-12 mx-auto my-auto rounded-[15px] w-1/6">
               <button onClick={() => setMenu(true)} className="mx-auto my-auto">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
