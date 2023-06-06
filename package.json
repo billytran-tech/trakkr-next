@@ -1,0 +1,82 @@
+{
+  "name": "serverless-saas",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "deploy:functions": "cd ./functions && npm run deploy",
+    "lint": "eslint ./src/ --ext ts,js,tsx,jsx",
+    "lint:fix": "eslint ./src/ --ext ts,js,tsx,jsx --fix",
+    "start": "next start",
+    "format": "prettier 'src/**/*.{js,jsx,ts,tsx,json,css}' --write",
+    "type-check": "tsc",
+    "install:initial": "npm install && cd functions && npm install && cp ../.env.local.example ../.env.local && cd ..",
+    "preinstall": "npx npm-force-resolutions"
+  },
+  "browserslist": [
+    "> 1%"
+  ],
+  "dependencies": {
+    "@headlessui/react": "^1.7.8",
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "@mui/core": "^5.0.0-alpha.54",
+    "@mui/lab": "^5.0.0-alpha.129",
+    "@mui/material": "^5.12.3",
+    "@mui/styles": "^5.12.3",
+    "@stripe/stripe-js": "1.16.0",
+    "axios": "^1.4.0",
+    "chart.js": "^4.3.0",
+    "firebase": "9.10.0",
+    "material-table": "^2.0.3",
+    "netlify-cms-app": "^2.15.69",
+    "next": "^13.1.6",
+    "primereact": "^9.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-dropzone": "11.3.4",
+    "react-hook-form": "7.12.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9",
+    "@types/firebase": "^3.2.1",
+    "@types/node": "16.4.10",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "@types/webpack-env": "1.16.2",
+    "@typescript-eslint/eslint-plugin": "4.29.0",
+    "@typescript-eslint/parser": "4.29.0",
+    "autoprefixer": "^10.4.13",
+    "eslint": "^7.32.0",
+    "eslint-config-next": "^11.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "frontmatter-markdown-loader": "^3.7.0",
+    "husky": "4.3.8",
+    "lint-staged": "^11.1.2",
+    "npm-force-resolutions": "0.0.10",
+    "postcss": "^8.4.21",
+    "prettier": "^2.4.0",
+    "tailwindcss": "^3.2.4",
+    "typescript": "4.3.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run type-check && npm run lint:fix "
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "yarn lint:fix",
+      "yarn format"
+    ]
+  },
+  "resolutions": {
+    "**/@types/react": "^18.0.21"
+  }
+}
