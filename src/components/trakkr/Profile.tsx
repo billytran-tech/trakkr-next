@@ -100,7 +100,7 @@ const Profile = ({ setMenu, menu }): JSX.Element => {
     <div className="flex flex-col w-full h-full md:h-screen space-y-4">
       <div className="flex place-content-between">
         <p className="text-2xl text-white">Your Profile</p>
-        <div className="flex md:hidden w-2/12 sm:1/5 bg-[#2E3033] h-12 my-auto rounded-[15px] w-1/6 h-fit">
+        <div className="flex md:hidden w-12 shrink-0 bg-[#2E3033] h-12 my-auto rounded-[15px]">
           <button onClick={() => setMenu(!menu)} className="mx-auto my-auto">
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -12,16 +12,19 @@ const DashboardPage = () => {
   const dropdownNode = useRef();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [menu, setMenu] = useState(false);
+  const wrapperRef = useRef(null);
+  useOnClickOutside(wrapperRef, () => setMenu(false));
 
   useOnClickOutside(dropdownNode, () => setDropdownOpen(false));
 
   return (
     // <Layout>
-    <div className="flex flex-row h-full overflow-auto px-4 py-10 pb-12 bg-[#1A1B1E] space-x-4 mx-auto sm:px-6 lg:px-8">
+    <div className="flex flex-row h-full overflow-auto px-4 py-10 pb-12 bg-[#1A1B1E] lg:space-x-4 mx-auto sm:px-6 lg:px-8">
       {menu && (
         <div
           className="dark fixed top-0 left-0 z-40 w-64 h-screen p-4 overflow-y-auto transition-transform bg-white dark:bg-[#2E3033]"
           tabIndex={-1}
+          ref={wrapperRef}
         >
           <h5 className="text-base font-semibold text-gray-500 uppercase dark:text-gray-400">
             Trakkr
@@ -437,7 +440,7 @@ const DashboardPage = () => {
                 />
               </defs>
             </svg>
-            <p className="ml-4 text-[16px] text-center font-semibold">
+            <p className="ml-4 text-[16px] font-semibold truncate">
               AI Coach{' '}
               <span className="text-[12px] align-top font-normal">*soon*</span>
             </p>
@@ -594,10 +597,10 @@ const DashboardPage = () => {
         </div>
       </div>
 
-      <div className="flex flex-col lg:w-5/6 max-lg:w-full h-full rounded-[15px] space-y-4">
+      <div className="flex flex-col lg:w-5/6 w-full h-full rounded-[15px] space-y-4">
         {tab !== 'profile' && (
           <div className="flex flex-row w-full rounded-[15px] space-x-4">
-            <div className="flex lg:hidden w-2/12 sm:1/5 bg-[#2E3033] h-12 mx-auto my-auto rounded-[15px] w-1/6">
+            <div className="flex lg:hidden bg-[#2E3033] h-12 w-12 shrink-0 rounded-[15px]">
               <button onClick={() => setMenu(true)} className="mx-auto my-auto">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -615,20 +618,20 @@ const DashboardPage = () => {
                 </svg>
               </button>
             </div>
-            <div className="bg-[#2E3033] w-8/12 sm:w-3/6 lg:w-[70%] h-12 rounded-[15px]">
+            <div className="bg-[#2E3033] w-[calc(100%-128px)] sm:w-3/6 lg:w-[70%] h-12 rounded-[15px]">
               <p className="text-[#B8B8B8] text-center mt-2.5 truncate">
                 Backtesting session on EURUSD - From 11/30/2022 to 01/07/2023 -
                 Strategy #1
               </p>
             </div>
-            <div className="flex flex-row w-full w-2/12 sm:w-3/6 lg:w-[30%] space-x-4">
-              <div className="w-full bg-[#2E3033] max-sm:hidden h-12 rounded-[15px]">
+            <div className="flex flex-row w-12 sm:w-3/6 lg:w-[30%] sm:space-x-4">
+              <div className="w-[calc(100%)] bg-[#2E3033] max-sm:hidden h-12 rounded-[15px]">
                 <p className="h-full my-auto text-center mt-3 text-white truncate">
                   Good Morning John ☀️
                 </p>
               </div>
               <div
-                className="w-12 bg-[#2E3033] h-12 rounded-[15px]"
+                className="w-12 shrink-0 bg-[#2E3033] h-12 rounded-[15px]"
                 ref={dropdownNode}
               >
                 {auth.user?.avatarUrl ? (
